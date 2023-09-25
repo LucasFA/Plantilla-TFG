@@ -7,7 +7,7 @@ jobs:
     name: Construir el PDF
 
     runs-on: ubuntu-latest
-    container: dockershelf/latex:full
+    container: asmilex/raytracing
 
     steps:
       - name: Checkout code
