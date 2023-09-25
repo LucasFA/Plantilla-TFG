@@ -7,7 +7,7 @@ jobs:
     name: Construir el PDF
 
     runs-on: ubuntu-latest
-    container: dockershelf/latex:basic
+    container: dockershelf/latex:full
 
     steps:
       - name: Checkout code
