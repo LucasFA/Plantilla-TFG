@@ -5,20 +5,15 @@ on:
       - 'main'
 
 jobs:
-  check-files:
-    uses: ./.github/workflows/check-files.yml
   build-web:
     name: Construir la web
-
-    needs: check-files
-    if: ${{ needs.check-files.outputs.updated }}
 
     runs-on: ubuntu-latest
     container: asmilex/raytracing
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Compile web documentation
         run: |
