@@ -1,0 +1,25 @@
+name: "Update flake.lock"
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 1 * *'
+
+jobs:
+  lockfile:
+    permissions:
+      contents: write
+      id-token: write
+      issues: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: DeterminateSystems/determinate-nix-action@v3
+      - uses: DeterminateSystems/update-flake-lock@v28
+        with:
+          pr-title: "flake.lock: update Nix flake inputs"
+          pr-labels: |
+            dependencies
+            automated
+          pr-reviewers: LucasFA
